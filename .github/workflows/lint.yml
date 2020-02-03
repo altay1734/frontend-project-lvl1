@@ -3,11 +3,11 @@ name: Lint
 on: [push]
 
 jobs: Lint files of project  
-  build:
+	build:
 
-    runs-on: ubuntu-latest
+		runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Run lint files
-      run: make lint
+		steps:
+		- uses: actions/checkout@v2
+		- name: Run lint files
+			run: make lint
