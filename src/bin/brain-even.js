@@ -2,5 +2,3 @@
 import isEven from '../isEven.js';
 
 isEven();
-
-
