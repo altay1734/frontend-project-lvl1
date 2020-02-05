@@ -14,7 +14,7 @@ export default (task, quest, answ, quest2, answ2, quest3, answ3) => {
 
   console.log(`Question: ${quest}`);
   const firstAnswer = readlineSync.question('Your answer: ');
-  if (firstAnswer === answ) {
+  if (firstAnswer === String(answ)) {
     console.log('Correct!');
   } else {
     return console.log(`'${firstAnswer}' is wrong answer ;(. Correct answer was '${answ}'.\nLet's try again, ${userName}!`);
@@ -22,7 +22,7 @@ export default (task, quest, answ, quest2, answ2, quest3, answ3) => {
 
   console.log(`Question: ${quest2}`);
   const secondAnswer = readlineSync.question('Your answer: ');
-  if (secondAnswer === answ2) {
+  if (secondAnswer === String(answ2)) {
     console.log('Correct!');
   } else {
     return console.log(`'${secondAnswer}' is wrong answer ;(. Correct answer was '${answ2}'.\nLet's try again, ${userName}!`);
@@ -30,7 +30,7 @@ export default (task, quest, answ, quest2, answ2, quest3, answ3) => {
 
   console.log(`Question: ${quest3}`);
   const thirdAnswer = readlineSync.question('Your answer: ');
-  if (thirdAnswer === answ3) {
+  if (thirdAnswer === String(answ3)) {
     console.log('Correct!');
   } else {
     return console.log(`'${thirdAnswer}' is wrong answer ;(. Correct answer was '${answ3}'.\nLet's try again, ${userName}!`);

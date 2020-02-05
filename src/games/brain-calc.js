@@ -1,4 +1,4 @@
-import gameEngine from './index.js';
+import gameEngine from '../index.js';
 
 const calc = () => {
   const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
