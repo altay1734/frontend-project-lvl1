@@ -1,18 +1,24 @@
 import gameEngine from '../index.js';
+import getRandomNum from '../functions.js';
 
 export default () => {
-  const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
-  const question1 = getRandomNum(1, 100);
-  const question2 = getRandomNum(1, 100);
-  const question3 = getRandomNum(1, 100);
-  const isPrime = (num) => {
-    for (let i = 2; i < num; i += 1) {
-      if (num % i === 0) {
-        return 'no';
+  const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  const gameCount = 3;
+  const questions = [];
+  const answers = [];
+  for (let i = 0; i < gameCount; i += 1) {
+    const randomNum = getRandomNum(1, 100);
+    questions.push(randomNum);
+    let isAnswerActual = true;
+    for (let count = 2; count < randomNum; count += 1) {
+      if (randomNum % count === 0) {
+        answers.push('no');
+        isAnswerActual = false;
+        break;
       }
     }
-    return 'yes';
-  };
+    if (isAnswerActual) answers.push('yes');
+  }
 
-  gameEngine('Answer "yes" if given number is prime. Otherwise answer "no".', question1, isPrime(question1), question2, isPrime(question2), question3, isPrime(question3));
+  gameEngine(gameRules, questions, answers);
 };

@@ -1,17 +1,25 @@
 import gameEngine from '../index.js';
+import getRandomNum from '../functions.js';
 
-const isEven = () => {
-  const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
-  const num1 = getRandomNum(1, 100);
-  const num2 = getRandomNum(1, 100);
-  const num3 = getRandomNum(1, 100);
-  const isEv = (num) => {
-    if (num % 2 === 0) {
-      return 'yes';
-    }
-    return 'no';
-  };
-  gameEngine('Answer "yes" if the number is even, otherwise answer "no".\n', num1, isEv(num1), num2, isEv(num2), num3, isEv(num3));
+const isEven = (num) => {
+  if (num % 2 === 0) {
+    return 'yes';
+  }
+  return 'no';
 };
 
-export default isEven;
+const brainEven = () => {
+  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".\n';
+  const gamesCount = 3;
+  const questions = [];
+  const answers = [];
+  for (let i = 0; i < gamesCount; i += 1) {
+    const randomNum = getRandomNum(1, 100);
+    questions.push(randomNum);
+    answers.push(isEven(randomNum));
+  }
+
+  gameEngine(gameRules, questions, answers);
+};
+
+export default brainEven;

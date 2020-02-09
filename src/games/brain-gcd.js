@@ -1,23 +1,24 @@
 import gameEngine from '../index.js';
+import getRandomNum from '../functions.js';
 
 export default () => {
-  const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
-
-  const getRandomNum1 = `${getRandomNum(1, 100)} ${getRandomNum(1, 100)}`;
-  const getRandomNum2 = `${getRandomNum(1, 100)} ${getRandomNum(1, 100)}`;
-  const getRandomNum3 = `${getRandomNum(1, 100)} ${getRandomNum(1, 100)}`;
-  const arr = [getRandomNum1, getRandomNum2, getRandomNum3];
-  // eslint-disable-next-line consistent-return
-  const gcd = (randomNum) => {
-    const num = randomNum;
-    const arrNum = num.split(' ');
-    const minNum = Math.min(...arrNum);
-    const maxNum = Math.max(...arrNum);
-    for (let i = minNum; i > 0; i -= 1) {
-      if (minNum % i === 0 && maxNum % i === 0) {
-        return i;
+  const gameRules = 'Find the greatest common divisor of given numbers.';
+  const gamesCount = 3;
+  const questions = [];
+  const answers = [];
+  for (let i = 0; i < gamesCount; i += 1) {
+    const randomNums = `${getRandomNum(1, 100)} ${getRandomNum(1, 100)}`;
+    questions.push(randomNums);
+    const arrRandomNums = randomNums.split(' ');
+    const minNum = Math.min(...arrRandomNums);
+    const maxNum = Math.max(...arrRandomNums);
+    for (let counter = minNum; counter > 0; counter -= 1) {
+      if (minNum % counter === 0 && maxNum % counter === 0) {
+        answers.push(counter);
+        break;
       }
     }
-  };
-  gameEngine('Find the greatest common divisor of given numbers.', arr[0], gcd(getRandomNum1), arr[1], gcd(getRandomNum2), arr[2], gcd(getRandomNum3));
+  }
+
+  gameEngine(gameRules, questions, answers);
 };

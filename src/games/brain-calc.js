@@ -1,15 +1,26 @@
 import gameEngine from '../index.js';
+import getRandomNum from '../functions.js';
 
 const calc = () => {
-  const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min) + min);
+  const gameRules = 'What is the result of the expression?';
+  const gamesCount = 3;
+  const questions = [];
+  const answers = [];
   const operators = ['*', '-', '+'];
-  const getRandomOperation1 = `${getRandomNum(1, 30)} ${operators[getRandomNum(0, 3)]} ${getRandomNum(1, 30)}`;
-  const getRandomOperation2 = `${getRandomNum(1, 30)} ${operators[getRandomNum(0, 3)]} ${getRandomNum(1, 30)}`;
-  const getRandomOperation3 = `${getRandomNum(1, 30)} ${operators[getRandomNum(0, 3)]} ${getRandomNum(1, 30)}`;
-  const arr = [getRandomOperation1, getRandomOperation2, getRandomOperation3];
+  for (let i = 0; i < gamesCount; i += 1) {
+    const randomOperation = `${getRandomNum(1, 30)} ${operators[getRandomNum(0, 3)]} ${getRandomNum(1, 30)}`;
+    questions.push(randomOperation);
+    const arrRandomOperation = randomOperation.split(' ');
+    if (arrRandomOperation[1] === '*') {
+      answers.push(Number(arrRandomOperation[0]) * Number(arrRandomOperation[2]));
+    } else if (arrRandomOperation[1] === '-') {
+      answers.push(Number(arrRandomOperation[0]) - Number(arrRandomOperation[2]));
+    } else {
+      answers.push(Number(arrRandomOperation[0]) + Number(arrRandomOperation[2]));
+    }
+  }
 
-  // eslint-disable-next-line no-eval
-  gameEngine('What is the result of the expression?', arr[0], String(eval(getRandomOperation1)), arr[1], String(eval(getRandomOperation2)), arr[2], String(eval(getRandomOperation3)));
+  gameEngine(gameRules, questions, answers);
 };
 
 export default calc;
