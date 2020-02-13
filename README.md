@@ -1,7 +1,7 @@
-##
+## Brain games
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/4e426943f7b281259958/maintainability)](https://codeclimate.com/github/altay1734/frontend-project-lvl1/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/4e426943f7b281259958/test_coverage)](https://codeclimate.com/github/altay1734/frontend-project-lvl1/test_coverage)
 ![Linter status](https://github.com/altay1734/frontend-project-lvl1/workflows/.github/workflows/Linter_status.yml/badge.svg)
 ##
 
