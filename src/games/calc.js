@@ -1,30 +1,32 @@
 import { gamesCount, gameEngine } from '../index.js';
 import getRandomNum from '../functions.js';
 
-const gameRules = 'What is the result of the expression?';
+const gameDescription = 'What is the result of the expression?';
 
-const calc = () => {
+const runBrainCalc = () => {
   const questions = [];
   const answers = [];
   const operators = ['*', '-', '+'];
   const operatorsLastIndex = operators.length - 1;
   for (let i = 0; i < gamesCount; i += 1) {
-    const randomOperation = `${getRandomNum(1, 30)} ${operators[getRandomNum(0, operatorsLastIndex)]} ${getRandomNum(1, 30)}`;
-    questions.push(randomOperation);
-    const arrRandomOperation = randomOperation.split(' ');
-    switch (arrRandomOperation[1]) {
+    const firstRandomNum = getRandomNum(1, 30);
+    const secondRandomNum = getRandomNum(1, 30);
+    const randomOperator = operators[getRandomNum(0, operatorsLastIndex)];
+    const question = `${firstRandomNum} ${randomOperator} ${secondRandomNum}`;
+    questions.push(question);
+    switch (randomOperator) {
       case '*':
-        answers.push(Number(arrRandomOperation[0]) * Number(arrRandomOperation[2]));
+        answers.push(String(firstRandomNum * secondRandomNum));
         break;
       case '-':
-        answers.push(Number(arrRandomOperation[0]) - Number(arrRandomOperation[2]));
+        answers.push(String(firstRandomNum - secondRandomNum));
         break;
       default:
-        answers.push(Number(arrRandomOperation[0]) + Number(arrRandomOperation[2]));
+        answers.push(String(firstRandomNum + secondRandomNum));
     }
   }
 
-  gameEngine(gameRules, questions, answers);
+  gameEngine(gameDescription, questions, answers);
 };
 
-export default calc;
+export default runBrainCalc;
