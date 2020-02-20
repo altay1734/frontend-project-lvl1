@@ -24,7 +24,7 @@ export default () => {
     questions.push(question);
     const minNum = Math.min(firstRandomNum, secondRandomNum);
     const maxNum = Math.max(firstRandomNum, secondRandomNum);
-    answers.push(getGcd(minNum, maxNum));
+    answers.push(String(getGcd(minNum, maxNum)));
   }
 
   gameEngine(gameDescription, questions, answers);

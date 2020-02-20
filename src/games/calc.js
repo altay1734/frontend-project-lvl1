@@ -21,12 +21,15 @@ const runBrainCalc = () => {
       case '-':
         answers.push(String(firstRandomNum - secondRandomNum));
         break;
-      default:
+      case '+':
         answers.push(String(firstRandomNum + secondRandomNum));
+        break;
+      default:
+        return null;
     }
   }
 
-  gameEngine(gameDescription, questions, answers);
+  return gameEngine(gameDescription, questions, answers);
 };
 
 export default runBrainCalc;

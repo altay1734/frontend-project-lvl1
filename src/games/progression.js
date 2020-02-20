@@ -13,19 +13,15 @@ export default () => {
     const randomStep = getRandomNum(1, 10);
     const randomPosition = getRandomNum(1, lengthOfProgression - 1);
     const answer = randomBegin + randomStep * randomPosition;
-    let isFirst = true;
     for (let count = 0; count < lengthOfProgression; count += 1) {
-      if (isFirst) {
-        progression = `${randomBegin}`;
-        isFirst = false;
-      } else if (count !== randomPosition) {
-        progression = `${progression} ${randomBegin + randomStep * count}`;
+      if (count !== randomPosition) {
+        progression = `${progression} ${randomBegin + randomStep * count}`.trim();
       } else {
         progression = `${progression} ..`;
       }
     }
     questions.push(progression);
-    answers.push(answer);
+    answers.push(String(answer));
   }
 
   gameEngine(gameDescription, questions, answers);
