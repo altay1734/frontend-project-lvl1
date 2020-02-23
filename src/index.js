@@ -14,14 +14,10 @@ export const gameEngine = (task, question, answer) => {
     if (userAnswer === answer[i]) {
       console.log('Correct!');
     } else {
-      break;
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer[i]}'.`);
+      console.log(`Let's try again, ${userName}!`);
+      return;
     }
   }
-  const lastAnswer = answer.length - 1;
-  if (i === question.length && userAnswer === answer[lastAnswer]) {
-    console.log(`Congratulations, ${userName}!`);
-  } else {
-    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${answer[i]}'.`);
-    console.log(`Let's try again, ${userName}!`);
-  }
+  console.log(`Congratulations, ${userName}!`);
 };

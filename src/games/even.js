@@ -4,7 +4,7 @@ import getRandomNum from '../functions.js';
 const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no".';
 const isEven = (num) => num % 2 === 0;
 
-const runBrainEven = () => {
+const getQuestionsAndAnswers = () => {
   const questions = [];
   const answers = [];
   for (let i = 0; i < gamesCount; i += 1) {
@@ -16,4 +16,4 @@ const runBrainEven = () => {
   gameEngine(gameDescription, questions, answers);
 };
 
-export default runBrainEven;
+export default getQuestionsAndAnswers;

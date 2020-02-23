@@ -3,7 +3,7 @@ import getRandomNum from '../functions.js';
 
 const gameDescription = 'What is the result of the expression?';
 
-const runBrainCalc = () => {
+const getQuestionsAndAnswers = () => {
   const questions = [];
   const answers = [];
   const operators = ['*', '-', '+'];
@@ -32,4 +32,4 @@ const runBrainCalc = () => {
   return gameEngine(gameDescription, questions, answers);
 };
 
-export default runBrainCalc;
+export default getQuestionsAndAnswers;

@@ -11,16 +11,16 @@ export default () => {
     let progression = '';
     const randomBegin = getRandomNum(1, 30);
     const randomStep = getRandomNum(1, 10);
-    const randomPosition = getRandomNum(1, lengthOfProgression - 1);
+    const randomPosition = getRandomNum(0, lengthOfProgression - 1);
     const answer = randomBegin + randomStep * randomPosition;
     for (let count = 0; count < lengthOfProgression; count += 1) {
       if (count !== randomPosition) {
-        progression = `${progression} ${randomBegin + randomStep * count}`.trim();
+        progression = `${progression} ${randomBegin + randomStep * count}`;
       } else {
         progression = `${progression} ..`;
       }
     }
-    questions.push(progression);
+    questions.push(progression.trim());
     answers.push(String(answer));
   }
 
