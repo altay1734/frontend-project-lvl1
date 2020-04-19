@@ -6,7 +6,7 @@ const gameDescription = 'Find the greatest common divisor of given numbers.';
 const getGcd = (firstNum, secondNum) => {
   const minNum = Math.min(firstNum, secondNum);
   const maxNum = Math.max(firstNum, secondNum);
-  let result = 0;
+  let result;
   for (let counter = minNum; counter > 0; counter -= 1) {
     if (minNum % counter === 0 && maxNum % counter === 0) {
       result = counter;

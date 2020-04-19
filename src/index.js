@@ -6,9 +6,8 @@ export const gameEngine = (task, question, answer) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(task);
-  let i = 0;
   let userAnswer;
-  for (; i < question.length; i += 1) {
+  for (let i = 0; i < question.length; i += 1) {
     console.log(`Question: ${question[i]}`);
     userAnswer = readlineSync.question('Your answer: ');
     if (userAnswer === answer[i]) {
